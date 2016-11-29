@@ -92,5 +92,34 @@ class CI_Controller {
 	{
 		return self::$instance;
 	}
-
+	/**
+	 * [检查登陆状态]
+	 * @author fd
+	 * @date   2016-11-29
+	 * @return [type]     [description]
+	 */
+	public function  check_status(){
+		$message = $_SESSION['users'];
+		if(empty($message)){
+			redirect('login/index');
+		}
+	}
+	/**
+	 * [check_login description]
+	 * @author fd
+	 * @date   2016-11-29
+	 * @param  [type]     $account [description]
+	 * @param  [type]     $pwd     [description]
+	 * @return [type]              [description]
+	 */
+	public function check_login($account,$pwd){
+		$sql = "SELECT * FROM f_user WHERE account = '".$account."' AND pwd ='".sha1($pwd)."'";
+		$res = $this->db->query($sql);
+		if(empty($res->result())){
+			redirect('login/index');
+		}else{
+			$_SESSION['users'] = $res->result;
+			redirect('index/index');
+		}
+	}
 }
