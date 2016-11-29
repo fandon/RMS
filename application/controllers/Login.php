@@ -6,7 +6,7 @@ class Login extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->check_status();
+		//$this->check_status();
 	}
 	public function index()
 	{
