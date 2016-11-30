@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Index extends CI_Controller
 {
-	
-	function __construct()
+	public function __construct()
 	{
-		# code...
+		parent::__construct();
+		//$this->check_status();
 	}
 
 	public function index()
 	{
-
+		$this->load->view('index/index');
 	}
 }
