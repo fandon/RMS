@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="layui-tab-title">
             <li class="layui-this">
               <i class="fa fa-dashboard" aria-hidden="true"></i>
-              <cite>控制面板</cite>
+              <cite>工作台</cite>
             </li>
           </ul>
           <div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
