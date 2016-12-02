@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <link rel="stylesheet" href="<?php echo base_url()?>public/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="<?php echo base_url()?>public/css/global.css" media="all">
-    <link rel="stylesheet" href="<?php echo base_url()?>public/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>public/css/font-awesome.min.css">
 
   </head>
 
@@ -27,11 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="layui-main">
           <div class="admin-login-box">
             <a class="logo" style="left: 0;" href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">
-              <span style="font-size: 22px;">BeginnerAdmin</span>
+              <span style="font-size: 22px;">forfree</span>
             </a>
-            <div class="admin-side-toggle">
+            <!-- <div class="admin-side-toggle">
               <i class="fa fa-bars" aria-hidden="true"></i>
-            </div>
+            </div> -->
           </div>
           <ul class="layui-nav admin-header-item">
             <li class="layui-nav-item">
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
             <li class="layui-nav-item">
               <a href="javascript:;" class="admin-header-user">
-                <img src="images/0.jpg" />
+                <img src="/public/images/0.jpg" />
                 <span>beginner</span>
               </a>
               <dl class="layui-nav-child">
@@ -95,92 +95,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <i class="layui-icon">&#xe602;</i>
       </div>
       <div class="site-mobile-shade"></div>
-      
       <script type="text/javascript" src="<?php echo base_url()?>public/layui/layui.js"></script>
-      <script type="text/javascript">
-          var navs = [{
-      "title": "基本元素",
-      "icon": "fa-cubes",
-      "spread": true,
-      "children": [{
-        "title": "按钮",
-        "icon": "&#xe641;",
-        "href": "button.html"
-      }, {
-        "title": "表单",
-        "icon": "&#xe63c;",
-        "href": "form.html"
-      }, {
-        "title": "表格",
-        "icon": "&#xe63c;",
-        "href": "table.html"
-      }, {
-        "title": "导航",
-        "icon": "&#xe609;",
-        "href": "nav.html"
-      }, {
-        "title": "Tab选项卡",
-        "icon": "&#xe62a;",
-        "href": "tab.html"
-      }, {
-        "title": "辅助性元素",
-        "icon": "&#xe60c;",
-        "href": "auxiliar.html"
-      }]
-    }, {
-      "title": "组件",
-      "icon": "fa-cogs",
-      "spread": false,
-      "children": [{
-        "title": "Datatable",
-        "icon": "fa-table",
-        "href": "begtable.html"
-      }, {
-        "title": "Navbar组件",
-        "icon": "fa-navicon",
-        "href": "navbar.html"
-      }]
-    }, {
-      "title": "第三方组件",
-      "icon": "&#x1002;",
-      "spread": false,
-      "children": [{
-        "title": "iCheck组件",
-        "icon": "fa-check-square-o",
-        "href": "icheck.html"
-      }]
-    }, {
-      "title": "地址本",
-      "icon": "fa-address-book",
-      "href": "",
-      "spread": true,
-      "children": [{
-        "title": "Github",
-        "icon": "fa-github",
-        "href": "https://www.github.com/"
-      }, {
-        "title": "QQ",
-        "icon": "fa-qq",
-        "href": "http://www.qq.com/"
-      }, {
-        "title": "Fly社区",
-        "icon": "&#xe609;",
-        "href": "http://fly.layui.com/"
-      }, {
-        "title": "新浪微博",
-        "icon": "fa-weibo",
-        "href": "http://weibo.com/"
-      }]
-    }, {
-      "title": "这是一级导航",
-      "icon": "fa-stop-circle",
-      "href": "https://www.baidu.com",
-      "spread": false
-    }];
-    </script>
-      <script src="<?php echo base_url()?>public/js/index.js"></script>
+      <script type="text/javascript" src="<?php echo base_url()?>public/js/index.js"></script>
     </div>
-    
+
   </body>
 
 </html>

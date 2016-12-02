@@ -51,6 +51,7 @@ layui.config({
 				async: false, //_config.async,
 				dataType: 'json',
 				success: function(result, status, xhr) {
+					console.log(result);
 					var html = getHtml(result);
 					$container.html(html);
 					element.init();
@@ -132,6 +133,7 @@ layui.config({
 	 */
 	function getHtml(data) {
 		var ulHtml = '<ul class="layui-nav layui-nav-tree">';
+		console.log(data);
 		for(var i = 0; i < data.length; i++) {
 			if(data[i].spread) {
 				ulHtml += '<li class="layui-nav-item layui-nav-itemed">';
