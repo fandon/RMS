@@ -11,9 +11,14 @@ class User_model extends CI_Model
 
 	public function get_users($where,$order,$limit,$fields)
 	{
-		if(isset($where['id'])){
+		$sql = "SELECT * FROM f_user"
+		$res = $this->db->query($sql);
+		return $res->result;
+	}
 
-		}
-		$this->db->query();
+	public function get_user_id($id){
+		$sql = "SELECT * FROM f_user where id=".$id;
+		$res = $this->db->query($sql);
+		return $res->result;
 	}
 }
