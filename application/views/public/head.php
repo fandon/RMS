@@ -12,5 +12,6 @@
     <link rel="stylesheet" href="<?php echo base_url()?>public/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="<?php echo base_url()?>public/css/global.css" media="all">
     <link rel="stylesheet" href="<?php echo base_url()?>public/css/font-awesome.min.css">
+     <script type="text/javascript" src="<?php echo base_url()?>public/layui/layui.js"></script>
   </head>
  <body>

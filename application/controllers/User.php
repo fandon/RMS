@@ -12,8 +12,25 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$data['users'] = $this->User_model->get_users()->result();
 		$this->load->view('public/head');
-		$this->load->view('user/index',$data);
-	} 
+		$this->load->view('user/index');
+	}
+
+	public function getusers(){
+		$pagecurr = $_POST['pagecurr'];
+		if(empty($pagecurr)){
+			$pagecurr = 1;
+		}
+		$count = $this->db->count_all_results('f_user');
+		$total = ceil($count/12);
+		$order = 'id DESC';
+		$limit = 12*($pagecurr-1).','.$pagecurr*12;
+		$users = $this->User_model->get_users($order,$limit)->result();
+		$this->output->set_output(json_encode(
+			$data = array(
+				'users'=>$users,
+				'total'=>$total
+				)
+			));
+	}
 }

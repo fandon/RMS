@@ -19,8 +19,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<fieldset class="layui-elem-field">
 		<legend>数据列表</legend>
 		<div class="layui-field-box">
-			<table class="site-table table-hover">
+			<table class="layui-table">
+			<tr>
+				<td>id</td>
+				<td>账号</td>
+				<td>昵称</td>
+				<td>手机</td>
+				<td>操作</td>
+			</tr>
+			<tbody class="user_data">
+				
+			</tbody>
 			</table>
+			<div class="admin-table-page">
+				<div id="page" class="page"></div>
+			</div>
 		</div>
-	</fieldset>
+	</fieldset>	
 </div>
+<script type="text/javascript">
+	layui.use(['laypage','jquery'],function(){
+		var $ = layui.jquery;
+		laypage = layui.laypage;
+
+		function add_data(curr){
+		$.ajax({
+			url:'/user/getusers',
+			type:'POST',
+			data:{pagecurr:curr},
+			dataType:'json',
+			success:function(data){
+				var str = '';
+				var users = data.users;
+				console.log(users);
+				for(var i = 0;i<users.length;i++){
+					str += "<tr><td>"+users[i].id+"</td><td>"+users[i].account+"</td><td>"+users[i].name+"</td><td>"+users[i].phone+"</td><td><a href='' class='layui-btn layui-btn-mini'>编辑</a><a href='' class='layui-btn layui-btn-danger layui-btn-mini'>删除</a></td></tr>";
+				}
+				$('.user_data').children().remove();
+				$('.user_data').append(str);
+				layui.laypage({
+					cont:'page',
+					pages:data.total,
+					curr: curr,
+					groups:6,
+					jump:function(obj, first){
+						if(!first){
+							add_data(obj.curr);
+						}
+					}
+				})
+			}
+		});		
+	}
+	add_data(1);
+	});
+</script>

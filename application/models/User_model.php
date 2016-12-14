@@ -9,9 +9,17 @@ class User_model extends CI_Model
 		parent::__construct();
 	}
 
-	public function get_users()
+	public function get_users($order,$limit)
 	{
-		$sql = "SELECT * FROM f_user";
+		$sql = " SELECT * FROM f_user ";
+		if(!empty($order))
+		{
+			$sql .= ' ORDER BY '.$order;
+		}
+		if(!empty($limit))
+		{
+			$sql .= ' LIMIT '.$limit;
+		}		
 		$res = $this->db->query($sql);
 		return $res;
 	}
