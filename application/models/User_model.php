@@ -9,11 +9,11 @@ class User_model extends CI_Model
 		parent::__construct();
 	}
 
-	public function get_users($where,$order,$limit,$fields)
+	public function get_users()
 	{
-		$sql = "SELECT * FROM f_user"
+		$sql = "SELECT * FROM f_user";
 		$res = $this->db->query($sql);
-		return $res->result;
+		return $res;
 	}
 
 	public function get_user_id($id){

@@ -11,7 +11,9 @@ class Index extends CI_Controller
 
 	public function index()
 	{
+		$this->load->view('public/head');
 		$this->load->view('index/index');
+		$this->load->view('public/foot');
 	}
 	
 	public function getbar(){
@@ -24,11 +26,11 @@ class Index extends CI_Controller
 				array(
 				'title'=>'用户设置',
 				'icon' =>'&#xe641;',
-				'href' =>'user/index'),
+				'href' =>'/user/index'),
 				array(
 				'title'=>'角色设置',
 				'icon' =>'&#xe641;',
-				'href' =>'role/index'
+				'href' =>'/role/index'
 					)				
 				)
 			),
