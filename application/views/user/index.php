@@ -31,11 +31,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 			</tbody>
 			</table>
-			<div class="admin-table-page">
-				<div id="page" class="page"></div>
-			</div>
 		</div>
 	</fieldset>	
+	<div class="admin-table-page">
+		<div id="page" class="page"></div>
+	</div>
 </div>
 <script type="text/javascript">
 	layui.use(['laypage','jquery'],function(){
