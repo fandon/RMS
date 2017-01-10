@@ -16,7 +16,8 @@ class User extends CI_Controller
 		$this->load->view('user/index');
 	}
 
-	public function getusers(){
+	public function getusers()
+	{
 		$pagecurr = $_POST['pagecurr'];
 		if(empty($pagecurr)){
 			$pagecurr = 1;
@@ -32,5 +33,10 @@ class User extends CI_Controller
 				'total'=>$total
 				)
 			));
+	}
+
+	public function add()
+	{
+		$this->load->view('user/add');
 	}
 }

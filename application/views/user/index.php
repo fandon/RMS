@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="admin-main">
 	<blockquote class="layui-elem-quote">
-		<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+		<a href="/user/add" class="layui-btn layui-btn-small" id="add">
 			<i class="layui-icon">&#xe608;</i> 添加信息
 		</a>
 		<a href="#" class="layui-btn layui-btn-small" id="import">
@@ -38,10 +38,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 <script type="text/javascript">
-	layui.use(['laypage','jquery'],function(){
+	layui.use(['laypage','jquery','layer'],function(){
 		var $ = layui.jquery;
 		laypage = layui.laypage;
-
+		layer = layui.layer;
 		function add_data(curr){
 		$.ajax({
 			url:'/user/getusers',
@@ -72,5 +72,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});		
 	}
 	add_data(1);
+	/*$("#add").on('click',function(){
+		$.get('/user/add',null,function(form){
+			layer.open({
+				type:1,
+				title:'添加用户',
+				content:form,
+				area: ['600px', '400px']
+			});
+		});
+	});*/
 	});
 </script>
