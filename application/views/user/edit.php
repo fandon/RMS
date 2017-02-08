@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-        <legend>添加用户</legend>
+        <legend>编辑用户</legend>
 </fieldset>
 <div class="layui-form">
 	 <div class="layui-form-item">
@@ -23,26 +23,3 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  layui.use(['jquery','layer'],function(){
-    var $ = layui.jquery;
-    layer = layui.layer;
-    $("#submit_btn").on('click',function(){
-      var acc = $("#account").val();
-      var pwd = $("#pwd").val();
-      $.post("/user/add_user",{account:acc,pwd:pwd},function(data,status){
-        if(data.status==1){
-          layer.open({
-            type:0,
-            icon:1,
-            content:"添加用户成功！",
-            yes: function(){
-              window.location.reload();
-            }
-          });
-        }
-      }
-        );
-    });
-  });
-</script>

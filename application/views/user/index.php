@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="admin-main">
 	<blockquote class="layui-elem-quote">
-		<a href="/user/add" class="layui-btn layui-btn-small" id="add">
+		<a href="javascript:;" target="_blank" class="layui-btn layui-btn-small" id="add">
 			<i class="layui-icon">&#xe608;</i> 添加信息
 		</a>
 		<a href="#" class="layui-btn layui-btn-small" id="import">
@@ -43,36 +43,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		laypage = layui.laypage;
 		layer = layui.layer;
 		function add_data(curr){
-		$.ajax({
-			url:'/user/getusers',
-			type:'POST',
-			data:{pagecurr:curr},
-			dataType:'json',
-			success:function(data){
-				var str = '';
-				var users = data.users;
-				console.log(users);
-				for(var i = 0;i<users.length;i++){
-					str += "<tr><td>"+users[i].id+"</td><td>"+users[i].account+"</td><td>"+users[i].name+"</td><td>"+users[i].phone+"</td><td><a href='' class='layui-btn layui-btn-mini'>编辑</a><a href='' class='layui-btn layui-btn-danger layui-btn-mini'>删除</a></td></tr>";
-				}
-				$('.user_data').children().remove();
-				$('.user_data').append(str);
-				layui.laypage({
-					cont:'page',
-					pages:data.total,
-					curr: curr,
-					groups:6,
-					jump:function(obj, first){
-						if(!first){
-							add_data(obj.curr);
-						}
+			$.ajax({
+				url:'/user/getusers',
+				type:'POST',
+				data:{pagecurr:curr},
+				dataType:'json',
+				success:function(data){
+					var str = '';
+					var users = data.users;
+					//console.log(users);
+					for(var i = 0;i<users.length;i++){
+						str += "<tr><td>"+users[i].id+"</td><td>"+users[i].account+"</td><td>"+users[i].name+"</td><td>"+users[i].phone+"</td><td><button id='edit_btn' class='layui-btn layui-btn-mini'>编辑</button><button class='layui-btn layui-btn-danger layui-btn-mini'>删除</button></td></tr>";
 					}
-				})
-			}
-		});		
-	}
+					$('.user_data').children().remove();
+					$('.user_data').append(str);
+					layui.laypage({
+						cont:'page',
+						pages:data.total,
+						curr: curr,
+						groups:6,
+						jump:function(obj, first){
+							if(!first){
+								add_data(obj.curr);
+							}
+						}
+					})
+				}
+			});		
+		}
 	add_data(1);
-	/*$("#add").on('click',function(){
+	$("#add").on('click',function(){
 		$.get('/user/add',null,function(form){
 			layer.open({
 				type:1,
@@ -81,6 +81,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				area: ['600px', '400px']
 			});
 		});
-	});*/
+	});
+	$("#edit_btn").on('click',function(){
+		console.log(1);
+		//alert($("#edit_btn").parent().prev().prev().children());
+		$.get('/user/edit',{id:id},function(form){
+			layer.open({
+				type:1,
+				title:'添加用户',
+				content:form,
+				area: ['600px', '400px']
+			});
+		});
+	});
 	});
 </script>

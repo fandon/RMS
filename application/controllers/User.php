@@ -37,6 +37,27 @@ class User extends CI_Controller
 
 	public function add()
 	{
+		//$this->load->view('public/head');
 		$this->load->view('user/add');
+	}
+
+	public function add_user()
+	{
+		$account = $this->input->post("account",true);
+		$pwd = $this->input->post("pwd",true);
+		$res = $this->db->insert('f_user',array('account'=>$account,'pwd'=>$pwd));
+		if($res){
+			$this->ajaxReturn(array('status'=>1,'msg'=>'success'));
+		}else{
+			$this->ajaxReturn(array('status'=>0,'msg'=>'fail'));
+		}
+	}
+
+	public function edit()
+	{
+		$id = $this->input->get('id',true);
+		$data = $this->db->get_where('f_user',array('id'=>$id));
+		var_dump($data);
+		$this->load->view('edit',$data);
 	}
 }
