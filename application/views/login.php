@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h1>后台登录</h1>
 			</header>
 			<div class="beg-login-main">
-				<form action="" class="layui-form" method="post">
+				<form action="/login/check" class="layui-form" method="post">
 					<div class="layui-form-item">
 						<label class="beg-login-icon">
                         <i class="layui-icon">&#xe612;</i>
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<script type="text/javascript" src="<?php echo base_url()?>public/layui/layui.js"></script>
 		<script>
-			layui.use(['layer', 'form'], function() {
+			/*layui.use(['layer', 'form'], function() {
 				var layer = layui.layer,
 					$ = layui.jquery,
 					form = layui.form();
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					location.href='index.html';
 					return false;
 				});
-			});
+			});*/
 		</script>
 	</body>
 

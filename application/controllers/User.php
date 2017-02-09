@@ -7,6 +7,7 @@ class User extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		$this->check_status();
 		$this->load->model('User_model');
 	}
 
@@ -56,8 +57,30 @@ class User extends CI_Controller
 	public function edit()
 	{
 		$id = $this->input->get('id',true);
-		$data = $this->db->get_where('f_user',array('id'=>$id));
-		var_dump($data);
-		$this->load->view('edit',$data);
+		$data = $this->db->get_where('f_user',array('id'=>$id))->result();
+		$this->load->view('user/edit',$da=$data[0]);
+	}
+
+	public function edit_user()
+	{
+		$account = $this->input->post("account",true);
+		$pwd = $this->input->post("pwd",true);
+		$res = $this->db->update_string('f_user',array('account'=>$account,'pwd'=>$pwd),"id = ");
+		if($res){
+			$this->ajaxReturn(array('status'=>1,'msg'=>'success'));
+		}else{
+			$this->ajaxReturn(array('status'=>0,'msg'=>'fail'));
+		}
+	}
+
+	public function delete()
+	{
+		$id = $this->input->post('id',true);
+		$res = $this->db->delete('f_user',array('id'=>$id));
+		if($res){
+			$this->ajaxReturn(array('status'=>1,'msg'=>'success'));
+		}else{
+			$this->ajaxReturn(array('status'=>0,'msg'=>'fail'));
+		}
 	}
 }

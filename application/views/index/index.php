@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
                 </dd>
                 <dd>
-                  <a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+                  <a href="/login/out"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
                 </dd>
               </dl>
             </li>

@@ -40,6 +40,15 @@
               window.location.reload();
             }
           });
+        }else{
+          layer.open({
+            type:0,
+            icon:2,
+            content:"添加用户失败！",
+            yes: function(){
+              window.location.reload();
+            }
+          });
         }
       }
         );

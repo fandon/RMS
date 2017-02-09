@@ -98,7 +98,7 @@ class CI_Controller {
 	 * @date   2016-11-29
 	 * @return [type]     [description]
 	 */
-	public function  check_status(){
+	protected function  check_status(){
 		$message = $_SESSION['users'];
 		if(empty($message)){
 			redirect('login/index');
@@ -112,17 +112,20 @@ class CI_Controller {
 	 * @param  [type]     $pwd     [description]
 	 * @return [type]              [description]
 	 */
-	public function check_login($account,$pwd){
-		$sql = "SELECT * FROM f_user WHERE account = '".$account."' AND pwd ='".sha1($pwd)."'";
-		$res = $this->db->query($sql);
-		if(empty($res->result())){
+	protected function check_login($account,$pwd){
+		$sql = "SELECT * FROM f_user WHERE account = '".$account."' AND pwd ='".$pwd."'";
+		$res = $this->db->query($sql)->result();
+		if(empty($res[0])){
 			redirect('login/index');
 		}else{
-			$_SESSION['users'] = $res->result;
+			$_SESSION['users'] = $res[0];
 			redirect('index/index');
 		}
 	}
-
+	protected function check_out(){
+		unset($_SESSION['users']);
+		redirect('login/index');
+	}
     protected function ajaxReturn($data) {
                 // 返回JSON数据格式到客户端 包含状态信息
                 header('Content-Type:application/json; charset=utf-8');

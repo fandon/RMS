@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<tr>
 				<td>id</td>
 				<td>账号</td>
-				<td>昵称</td>
+				<td>密码</td>
 				<td>手机</td>
 				<td>操作</td>
 			</tr>
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <script type="text/javascript">
 	layui.use(['laypage','jquery','layer'],function(){
-		var $ = layui.jquery;
+		$ = layui.jquery;
 		laypage = layui.laypage;
 		layer = layui.layer;
 		function add_data(curr){
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					var users = data.users;
 					//console.log(users);
 					for(var i = 0;i<users.length;i++){
-						str += "<tr><td>"+users[i].id+"</td><td>"+users[i].account+"</td><td>"+users[i].name+"</td><td>"+users[i].phone+"</td><td><button id='edit_btn' class='layui-btn layui-btn-mini'>编辑</button><button class='layui-btn layui-btn-danger layui-btn-mini'>删除</button></td></tr>";
+						str += "<tr><td>"+users[i].id+"</td><td>"+users[i].account+"</td><td>"+users[i].pwd+"</td><td>"+users[i].phone+"</td><td><button id='edit_btn' class='layui-btn layui-btn-mini' onclick='edit("+users[i].id+")'>编辑</button><button class='layui-btn layui-btn-danger layui-btn-mini' onclick='del_user("+users[i].id+")'>删除</button></td></tr>";
 					}
 					$('.user_data').children().remove();
 					$('.user_data').append(str);
@@ -82,9 +82,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			});
 		});
 	});
-	$("#edit_btn").on('click',function(){
-		console.log(1);
-		//alert($("#edit_btn").parent().prev().prev().children());
+	});
+
+	function edit(id)
+	{
 		$.get('/user/edit',{id:id},function(form){
 			layer.open({
 				type:1,
@@ -93,6 +94,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				area: ['600px', '400px']
 			});
 		});
-	});
-	});
+	}
+	function del_user(id)
+	{
+		layer.confirm('确认要删除吗？', {
+  		btn: ['确定','取消'] //按钮
+		}, function(){
+
+			$.post('/user/delete',{id:id},function(data,status){
+				if(data.status==1){
+		            layer.open({
+		            type:0,
+		            icon:1,
+		            content:"删除用户成功！",
+		            yes: function(){
+		              window.location.reload();
+		            }
+		          });
+		        }else{
+		          layer.open({
+		            type:0,
+		            icon:2,
+		            content:"删除用户失败！",
+		            yes: function(){
+		              window.location.reload();
+		            }
+		          });
+		        }
+			});
+		},function(){});
+	}
 </script>

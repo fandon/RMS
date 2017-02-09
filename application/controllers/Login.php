@@ -15,8 +15,13 @@ class Login extends CI_Controller {
 
 	public function check()
 	{
-		$account = $this->input->post('username');
-		$pwd = $this->input->post('pwd');
+		$account = $this->input->post('userName');
+		$pwd = $this->input->post('password');
 		$this->check_login($account,$pwd);
+	}
+
+	public function out()
+	{
+		$this->check_out();
 	}
 }
