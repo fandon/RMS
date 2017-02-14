@@ -6,12 +6,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a href="javascript:;" target="_blank" class="layui-btn layui-btn-small" id="add">
 			<i class="layui-icon">&#xe608;</i> 添加信息
 		</a>
-		<a href="#" class="layui-btn layui-btn-small" id="import">
+		<!-- <a href="#" class="layui-btn layui-btn-small" id="import">
 			<i class="layui-icon">&#xe608;</i> 导入信息
 		</a>
 		<a href="#" class="layui-btn layui-btn-small">
 			<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
-		</a>
+		</a> -->
 		<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
 			<i class="layui-icon">&#xe615;</i> 搜索
 		</a>
