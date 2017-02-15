@@ -20,20 +20,22 @@ class Index extends CI_Controller
 		$bar = array(
 			array(
 			'title' =>'系统设置',
-			'icon'  =>'fa-cubes',
+			'icon'  =>'&#xe614;',
 			'spread'=> true,
 			'children'=>array(
 				array(
 				'title'=>'用户设置',
-				'icon' =>'&#xe641;',
+				'icon' =>'&#xe613;',
 				'href' =>'/user/index'),
 				array(
 				'title'=>'角色设置',
-				'icon' =>'&#xe641;',
+				'icon' =>'&#xe600;',
 				'href' =>'/role/index'
 					),
 				array(
-				'title' => '菜单设置'
+				'title' => '菜单设置',
+				'icon' =>'&#xe641',
+				'href' =>'/menu/index'
 					)				
 				)
 			),
