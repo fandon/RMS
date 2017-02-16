@@ -131,4 +131,15 @@ class CI_Controller {
                 header('Content-Type:application/json; charset=utf-8');
                 exit(json_encode($data));
     }
+    //是否是post提交
+    protected function IS_POST()
+    {
+    	return $_SERVER['REQUEST_METHOD'] =='POST' ? true : false;
+    }
+
+    //是否是get提交
+    protected function IS_GET()
+    {
+    	return $_SERVER['REQUEST_METHOD'] =='GET' ? true : false; 
+    }
 }
