@@ -46,7 +46,8 @@ class User extends CI_Controller
 	{
 		$account = $this->input->post("account",true);
 		$pwd = $this->input->post("pwd",true);
-		$res = $this->db->insert('f_user',array('account'=>$account,'pwd'=>$pwd));
+		$phone = $this->input->post('phone',true);
+		$res = $this->db->insert('f_user',array('account'=>$account,'pwd'=>$pwd,'phone'=>$phone));
 		if($res){
 			$this->ajaxReturn(array('status'=>1,'msg'=>'success'));
 		}else{

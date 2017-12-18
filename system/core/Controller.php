@@ -127,9 +127,9 @@ class CI_Controller {
 		redirect('login/index');
 	}
     protected function ajaxReturn($data) {
-                // 返回JSON数据格式到客户端 包含状态信息
-                header('Content-Type:application/json; charset=utf-8');
-                exit(json_encode($data));
+        // 返回JSON数据格式到客户端 包含状态信息
+        header('Content-Type:application/json; charset=utf-8');
+        exit(json_encode($data));
     }
     //是否是post提交
     protected function IS_POST()

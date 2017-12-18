@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => '118.193.220.81',
+	'dsn'	=> 'mysql:host=localhost;dbname=rms',
+	'hostname' => '',
 	'username' => 'root',
-	'password' => 'forfree',
-	'database' => 'rms',
-	'dbdriver' => 'mysqli',
+	'password' => '123456',
+	'database' => '',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

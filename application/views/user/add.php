@@ -14,7 +14,12 @@
     <div class="layui-input-inline">
       <input type="password" name="pwd" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
     </div>
-    <div class="layui-form-mid layui-word-aux">辅助文字</div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">手机号</label>
+    <div class="layui-input-inline">
+      <input type="phone" id="phone" name="phone" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
   </div>
 	<div class="layui-form-item">
     <div class="layui-input-block">
@@ -30,7 +35,8 @@
     $("#submit_btn").on('click',function(){
       var acc = $("#account").val();
       var pwd = $("#pwd").val();
-      $.post("/user/add_user",{account:acc,pwd:pwd},function(data,status){
+      var phone = $('#phone').val();
+      $.post("/user/add_user",{account:acc,pwd:pwd,phone:phone},function(data,status){
         if(data.status==1){
           layer.open({
             type:0,

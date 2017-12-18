@@ -19,24 +19,36 @@ class Index extends CI_Controller
 	public function getbar(){
 		$bar = array(
 			array(
-			'title' =>'系统设置',
-			'icon'  =>'&#xe614;',
-			'spread'=> true,
-			'children'=>array(
-				array(
-				'title'=>'用户设置',
-				'icon' =>'&#xe613;',
-				'href' =>'/user/index'),
-				array(
-				'title'=>'角色设置',
-				'icon' =>'&#xe600;',
-				'href' =>'/role/index'
-					),
-				array(
-				'title' => '菜单设置',
-				'icon' =>'&#xe641',
-				'href' =>'/menu/index'
-					)				
+				'title' =>'系统设置',
+				'icon'  =>'&#xe614;',
+				'spread'=> true,
+				'children'=>array(
+					array(
+					'title'=>'用户设置',
+					'icon' =>'&#xe613;',
+					'href' =>'/user/index'),
+					array(
+					'title'=>'角色设置',
+					'icon' =>'&#xe600;',
+					'href' =>'/role/index'
+						),
+					array(
+					'title' => '菜单设置',
+					'icon' =>'&#xe641',
+					'href' =>'/menu/index'
+						)				
+					)
+			),
+			array(
+				'title' => '鉴别码管理',
+				'icon'  => '&#xe6b2;',
+				'spread' => true,
+				'children' => array(
+					array(
+						'title'=>'生成码',
+						'icon' =>'&#xe60a;',
+						'href' =>'/code/index'
+					)
 				)
 			),
 			);
